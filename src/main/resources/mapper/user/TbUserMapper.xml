@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.TbUserMapper">
+
+    <select id="checkEmail" resultType="integer">
+        SELECT COUNT(*) FROM `tb_user` WHERE `email`= #{email};
+    </select>
+
+    <select id="checkMobile" resultType="integer">
+        SELECT COUNT(*) FROM `tb_user` WHERE `mobile`= #{mobile};
+    </select>
+
+    <select id="checkUsername" resultType="integer">
+        SELECT COUNT(*) FROM `tb_user` WHERE `username`= #{username};
+    </select>
+
+    <insert id="addUser">
+        INSERT INTO `tb_user` (`username`,`password`,`fullname`,`mobile`,`email`)
+        VALUES (#{userinfo.username},#{userinfo.password},#{userinfo.fullname},#{userinfo.mobile},#{userinfo.email});
+    </insert>
+
+</mapper>
